@@ -1,12 +1,19 @@
 let copyText = document.getElementById('user-dashboard-referral');
-document.getElementById('user-dashboard-ref-copy').addEventListener('click', function() {
-    // let inp = copyText.innerText;
-    // inp.select();
-    // document.execCommand('copy');
+let copyReferral = document.getElementById('user-dashboard-ref-copy');
+
+copyReferral.addEventListener('click', function() {
+    
     copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(copyText.innerText);
+    copyText.setSelectionRange(0, 149);
+    copyText.classList.add('active');
+    copyReferral.classList.add('active');
+
+    navigator.clipboard.writeText(copyText.value).then(() => {
+        // window.getSelection().removeAllRanges();
+        setTimeout(function() {
+            copyReferral.classList.remove('active');
+            copyText.classList.remove('active');
+        }, 1500);
+    });
+
 })
-// copyText.select();
-// copyText.setSelectionRange(0, 99999);
-// navigator.clipboard.writeText(copyText.value);
