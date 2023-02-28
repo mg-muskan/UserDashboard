@@ -149,7 +149,7 @@ body {
     margin-bottom: 10px;
 }
 
-.user-dashboard-right-field > button {
+#user-dashboard-ref-copy {
     top: -37px;
     float: right;
     padding: 5px;
@@ -158,6 +158,38 @@ body {
     background: #fff;
     border: 1px solid #f5f5f5;
 }
+
+#user-dashboard-ref-copy:before {
+    content: 'Referral Copied';
+    position: absolute;
+    top: -40px;
+    width: max-content;
+    right: -25px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 7px 20px;
+    border-radius: 20px;
+    font-size: 15px;
+    display: none;
+}
+
+#user-dashboard-ref-copy:after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    background: #41464b;
+    transform: rotate(45deg);
+    display: none;
+}
+
+#user-dashboard-referral.active + #user-dashboard-ref-copy.active:before,
+#user-dashboard-referral.active + #user-dashboard-ref-copy.active:after {
+    display: block;
+}
+
 
 .user-dashboard-right-field > input::-webkit-outer-spin-button,
 .user-dashboard-right-field > input::-webkit-inner-spin-button {
